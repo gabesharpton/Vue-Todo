@@ -14,6 +14,25 @@ export default {
   components: {
     HelloWorld,
     List
+  },
+  data() {
+    todos: [
+      {
+        id:1,
+        title:"Todo One",
+        completed: false
+      },
+      {
+        id:2,
+        title:"Todo two",
+        completed: false
+      },
+      {
+        id:3,
+        title:"Todo three",
+        completed: false
+      }
+    ]
   }
 }
 </script>
