@@ -2,37 +2,46 @@
   <div id="app">
     
     <HelloWorld msg="To Do List"/>
-    <List msg="Todo"/>
+    
+    <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo" />
+    
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-import List from './components/List.vue'
+import Todos from './components/Todos.vue'
 export default {
   name: 'app',
   components: {
     HelloWorld,
-    List
+    Todos
   },
   data() {
-    todos: [
-      {
-        id:1,
-        title:"Todo One",
-        completed: false
-      },
-      {
-        id:2,
-        title:"Todo two",
-        completed: false
-      },
-      {
-        id:3,
-        title:"Todo three",
-        completed: false
-      }
+    return {
+      todos: [
+        {
+          id:1,
+          title:"Todo One",
+          completed: false
+        },
+        {
+          id:2,
+          title:"Todo Two",
+          completed: true
+        },
+        {
+          id:3,
+          title:"Todo Three",
+          completed: false
+        }
     ]
+    }
+  },
+  methods: {
+    deleteTodo(id){
+      this.todos = this.todos.filter(todo => todo.id !== id);
+    }
   }
 }
 </script>
